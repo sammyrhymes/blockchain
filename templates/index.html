@@ -8,11 +8,19 @@
       *{
         font-size: 1rem;
         font-family: chivo;
+        text-decoration: none;
+        list-style-type: none;
+      }
+      .header{
+        display: flex;
+        align-items: center;
+        border-bottom: 1px  solid coral;
       }
       body{
         background: black;
         width: 80%;
         margin: auto;
+        color: white;
       }
       .content{
         display: flex;
@@ -20,7 +28,7 @@
 
 
         color: white;
-        border-top: 1px solid coral;
+        border-bottom: 1px  solid coral;
       }
       .value{
         color: coral;
@@ -29,10 +37,28 @@
         font-size:2rem;
         color: coral;
       }
+      .nav > ul{
+        display: flex;
+        gap: 1rem;
+        justify-content: right;
+
+      }
+      .nav > ul > li{
+        display: inline-block;
+        color: coral;
+      }
     </style>
   </head>
   <body>
+    <div class ='header'>
     <h1 class='title'>Blockchain</h1>
+    <div class = 'nav'>
+      <ul>
+        <li>Validate</li>
+        <li>Mine</li>
+      </ul>
+    </div>
+    </div>
     {% for block in data.chain %}
     <div class = 'content'>
     <p>Block Number <span class = 'value' >
@@ -40,7 +66,12 @@
     <p>previous_hash <span class = 'value' > <br>{{ block.previous_hash }}</span></p>
     <p>proof <span class = 'value' ><br>{{ block.proof}}</span></p>
     <p>time created<span class = 'value' > <br>{{ block.timestamp }}</span></p>
-  </div>
+  </div>  
     {% endfor %}
+    <p>number of blocks
+      <span class='value'>
+        <br>{{ data.length }}
+      </span>
+    </p>
   </body>
 </html>
