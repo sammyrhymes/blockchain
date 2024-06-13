@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Data</title>
+    <style>
+      *{
+        font-size: 1rem;
+        font-family: chivo;
+      }
+      body{
+        background: black;
+        width: 80%;
+        margin: auto;
+      }
+      .content{
+        display: flex;
+        flex-direction: column;
+
+
+        color: white;
+        border-top: 1px solid coral;
+      }
+      .value{
+        color: coral;
+      }
+      .title{
+        font-size:2rem;
+        color: coral;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class='title'>Blockchain</h1>
+    {% for block in data.chain %}
+    <div class = 'content'>
+    <p>Block Number <span class = 'value' >
+      <br>{{ block.index }}</span></p>
+    <p>previous_hash <span class = 'value' > <br>{{ block.previous_hash }}</span></p>
+    <p>proof <span class = 'value' ><br>{{ block.proof}}</span></p>
+    <p>time created<span class = 'value' > <br>{{ block.timestamp }}</span></p>
+  </div>
+    {% endfor %}
+  </body>
+</html>
